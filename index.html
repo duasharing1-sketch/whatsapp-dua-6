@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dua 6 - Dua Sharing</title>
+  <title>Dua 1 - Dua Sharing</title>
 </head>
 <body>
   <a id="manualLink" href="#" target="_blank" style="display:none;">Open WhatsApp</a>
@@ -11,42 +11,35 @@
   <script>
     const message = `*What if shifā’ is just one du’a away?*
 
-This powerful dua is for asking Allah — by His Names Al-Lateef (The Subtle, Most Gentle) and Ash-Shaafi (The One Who Cures) — to grant full and complete healing from every kind of illness:
+This powerful dua is for asking Allah — by His Names Al-Lateef (The Subtle, Most Gentle) and Ash-Shaafi (The One Who Cures) — to grant full and complete healing from every kind of illness.
 
-— *Physical*
-— *Emotional*
-— *Mental*
-— *And even spiritual*
+*The Duʿāʾ:*  
 
-Whether it’s pain you can’t explain, stress you can’t shake, or sadness no one sees — nothing is too subtle or too severe for Allah’s Mercy.
+Ya Allah (O Allah), Ya Lateef (O Subtle, Most Gentle), Ya Shaafi (O He Who Cures), we ask for a complete and thorough cure from all the physical, psychological, emotional, and spiritual illnesses and diseases – both those we are aware of and currently experiencing, and those we may be unaware of. Remove the pains from our bodies, the worries and stresses from our minds, and the sadness, heartache, and grief from our hearts. Grant us such perfection in our health and well-being that no trace of illness, discomfort, or distress remains.
 
-As Rasulullah ﷺ said:
+This duʿāʾ is part of the *Supplication of Infinite Blessings* — a growing chain of heartfelt duʿāʾs shared by countless believers like you, worldwide.
 
-“There is no disease that Allah has created, except that He also has created its treatment.” (Bukhari)
+And because in an authentic hadith reported by Muʿādh ibn Anas (ra), Rasulullah ﷺ encouraged us to share beneficial knowledge, I humbly ask that you please forward this message far and wide — it only takes a few seconds, and your sharing can start a chain of duʿāʾs that continue returning to you from everyone it reaches.
 
-*Ya Allah (O Allah), Ya Lateef (O Subtle, Most Gentle), Ya Shaafi (O He Who Cures), we ask for a complete and thorough cure from all the physical, psychological, emotional, and spiritual illnesses and diseases – both those we are aware of and currently experiencing, and those we may be unaware of. Remove the pains from our bodies, the worries and stresses from our minds, and the sadness, heartache, and grief from our hearts. Grant us such perfection in our health and well-being that no trace of illness, discomfort, or distress remains.*
+When you share this message, you’re not simply sharing a duʿāʾ. You’re opening the door to countless people making sincere duʿāʾ for you daily — with the Malaika (Angels) themselves saying *“Ameen”* to every single one.
 
-This dua is part of *The Supplication of Infinite Blessings* — a powerful collection of heartfelt supplications designed to benefit you in both this life and the next. 
+For detailed information on this and the full *Supplication of Infinite Blessings* in both (English + Arabic) visit: https://www.duasharing.com/
 
-*At Dua Sharing, our mission is simple*: 
+I make duʿāʾ that Allah accepts it from you, and reward you for all those it reaches through you.
 
-To encourage sincere dua, meaningful sharing, and to multiply blessings through a growing global chain of people making dua for one another every single day.
+*Ameen.*`;
 
-As Rasulullah ﷺ said: 
+    const fallbacks = {
+      'ﷻ': 'ﷻ',
+      'ﷺ': 'ﷺ'
+    };
 
-“The supplication of a Muslim for his brother in his absence will certainly be answered. Every time he makes a supplication for good for his brother, the angel appointed for this task says: ‘Ameen! And may it be for you too.”
+    let messageWithFallback = message;
+    for (const [symbol, replacement] of Object.entries(fallbacks)) {
+      messageWithFallback = messageWithFallback.replace(new RegExp(symbol, 'g'), replacement);
+    }
 
-Every post we share is taken directly from the full Supplication of Infinite Blessings — with the aim of moving hearts, inspiring action, and reminding us all of what truly matters.
-
-Access the full supplication in both English and Arabic at: https://www.duasharing.com
-
-When you share this post, you’re not simply sharing a dua. You’re opening the door to millions of people making sincere dua for you — with the Malaika (Angels) themselves saying “Ameen” to every single one.
-
-May Allah accept it from you, and reward you for all those it reaches through you.
-
-Ameen`;
-
-    const encodedText = encodeURIComponent(message);
+    const encodedText = encodeURIComponent(messageWithFallback);
     const waProtocol = "whatsapp://send?text=" + encodedText;
     const waWeb = "https://wa.me/?text=" + encodedText;
 
@@ -56,7 +49,7 @@ Ameen`;
     async function tryShare() {
       try {
         if (navigator.share) {
-          await navigator.share({ text: message });
+          await navigator.share({ text: messageWithFallback });
         } else {
           window.location.href = waProtocol;
           setTimeout(() => { window.location.href = waWeb; }, 1200);
@@ -70,5 +63,3 @@ Ameen`;
   </script>
 </body>
 </html>
-
-
